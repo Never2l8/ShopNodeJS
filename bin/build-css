@@ -1,0 +1,1 @@
+node-sass --include-path scss public/sass/materialize.scss public/css/materialize.css
