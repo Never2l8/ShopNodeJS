@@ -1,5 +1,10 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('postgres://postgres:1986@localhost:5432/postgres');
+
+const dbConfig = {
+  forceCreateTable: true
+};
+
 sequelize
     .authenticate()
     .then(() => {
@@ -17,8 +22,13 @@ const User = sequelize.define('user', {
     }
 });
 
+const db = {
+    sequelize: sequelize,
+    dbConfig: dbConfig
+};
+
 // force: true will drop the table if it already exists
-User.sync({force: true}).then(() => {
+User.sync({force: dbConfig.forceCreateTable}).then(() => {
     // Table created
     return User.create({
         firstName: 'John',
@@ -26,5 +36,6 @@ User.sync({force: true}).then(() => {
     });
 });
 
+var item = require('./Item');
 
 module.exports = sequelize;

@@ -3,5 +3,5 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-
-  button.waves-effect.waves-light.btn(type='button', onclick="alert('Hello World!')") Click Me!
+  a(href='/addItem' , target= '_blank', title ='addItem')
+    button.waves-effect.waves-light.btn(type='button' ) Click Me!

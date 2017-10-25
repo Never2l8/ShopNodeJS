@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    .container
+        .row
+            form(action='/addItem/process', method='get' ).col.s12
+                .row
+                    .input-field.col.s6
+                        input#entry_title(type='text' name='entry_title' required=true)
+                        label(for='entry_title') Title
+                    .input-field.col.s6
+                        input#item_brand(type='text' name='item_brand')
+                        label(for='item_brand') Brand
+                    .input-field.col.s6
+                        input#brief( type='text' name='brief')
+                        label(for='brief') Brief
+                    .input-field.col.s6
+                        input#description(type='text' name='description')
+                        label(for='description') Description
+                    .input-field.col.s6
+                        input#price(type='text'  name='price')
+                        label(for='price') Price
+                    .input-field.col.s6
+                        input#item_color(type='text' name='item_color')
+                        label(for='item_color') Color
+                    .input-field.col.s6
+                        input#size(type='text'  name='size')
+                        label(for='size') Size
+                    .input-field.col.s6
+                        input#vendor_code(type='text' name='vendor_code')
+                        label(for='vendor_code') Vendor Code
+                    button.waves-effect.waves-light.btn(type='submit' ) Submit
+
+
+

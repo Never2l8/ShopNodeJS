@@ -8,6 +8,7 @@ var sassMiddleware = require('node-sass-middleware');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var addItem = require('./routes/addItem');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/addItem', addItem);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +52,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var database = require('./models/database.js');
+var database = require('./models/database.js').sequelize;
 
 module.exports = app;
 //const connect = "postgres://postgres:1986@localhost:5432";
