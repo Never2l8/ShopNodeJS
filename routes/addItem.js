@@ -1,6 +1,8 @@
+// must be
 const express = require('express');
-//var models  = require('../models');
 const router = express.Router();
+
+// if you need to use DB
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('postgres://postgres:1986@localhost:5432/postgres');
 sequelize
@@ -12,11 +14,12 @@ sequelize
         console.error('Unable to connect to the database:', err);
     });
 
-
+// route mapping itself
 router.get('/', function(req, res, next) {
     res.render('addItem', { title: 'Express' });
 });
 
+// route mapping to another address
 router.get('/process', function(req, res, next) {
     const title = req.query.entry_title;
     console.log(title);
@@ -50,5 +53,5 @@ router.get('/process', function(req, res, next) {
 });
 
 
-
+// tell system about new routes
 module.exports = router;

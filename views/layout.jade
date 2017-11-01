@@ -9,11 +9,77 @@ html
         //link(type='text/css', rel='stylesheet', href='css/materialize.min.css', media='screen,projection')
         // Let browser know website is optimized for mobile
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+
+
+
+
 
 
     body
-        block content
-        // Import jQuery before materialize.js
-        script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
-        script(type='text/javascript', src='js/bin/materialize.min.js')
+        header
+            nav.nav-extended
+                .nav-wrapper
+                    a.brand-logo(href='#') Logo
+                    a.button-collapse(href='#', data-activates='mobile-demo')
+                        i.material-icons menu
+                    ul#nav-mobile.right.hide-on-med-and-down
+                        li
+                            a(href='/account')
+                                i.medium.material-icons account_box
+                        li
+                            a(href='cart')
+                                i.medium.material-icons shopping_basket
+                        li
+                            a(href='collapsible.html') JavaScript
+                    ul#mobile-demo.side-nav
+                        li
+                            a(href='/account')
+                                i.medium.material-icons account_box
+                        li
+                            a(href='cart')
+                                i.medium.material-icons shopping_basket
+                        li
+                            a(href='collapsible.html') JavaScript
+                .nav-content
+                    ul.tabs.tabs-transparent
+                        li.tab
+                            a.active(href='#newarrivals') new arrivals
+                        li.tab
+                            a(href='#women') women
+                        li.tab
+                            a(href='#men') men
+                        li.tab
+                            a(href='#clearance') clearance
+                #newarrivals.col.s12 new arrivals
+                #women.col.s12 women
+                #men.col.s12 men
+                #clearance.col.s12 clearance
+        main
+            block content
+            // Import jQuery before materialize.js
+            script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+            script(type='text/javascript', src='js/bin/materialize.min.js')
+        footer.page-footer
+            .container
+                .row
+                    .col.l6.s12
+                        h5.white-text Footer Content
+                        p.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
+                    .col.l4.offset-l2.s12
+                        h5.white-text Links
+                        ul
+                            li
+                                a.grey-text.text-lighten-3(href='#!') Link 1
+                            li
+                                a.grey-text.text-lighten-3(href='#!') Link 2
+                            li
+                                a.grey-text.text-lighten-3(href='#!') Link 3
+                            li
+                                a.grey-text.text-lighten-3(href='#!') Link 4
+            .footer-copyright
+                .container
+                    | © 2014 Copyright Text
+                    a.grey-text.text-lighten-4.right(href='#!') More Links
+
 
