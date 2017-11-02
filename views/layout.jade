@@ -11,24 +11,21 @@ html
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
 
-
-
-
-
-
     body
         header
             nav.nav-extended
                 .nav-wrapper
-                    a.brand-logo(href='#') Logo
+                    a.brand-logo(href='/') Logo
                     a.button-collapse(href='#', data-activates='mobile-demo')
                         i.material-icons menu
                     ul#nav-mobile.right.hide-on-med-and-down
                         li
-                            a(href='/account')
+                            a.waves-effect.waves-light.btn(href='/sign_up') Sign up
+                        li
+                            a.waves-effect.waves-light.btn(href='/account')
                                 i.medium.material-icons account_box
                         li
-                            a(href='cart')
+                            a.waves-effect.waves-light.btn(href='cart')
                                 i.medium.material-icons shopping_basket
                         li
                             a(href='collapsible.html') JavaScript
@@ -41,25 +38,24 @@ html
                                 i.medium.material-icons shopping_basket
                         li
                             a(href='collapsible.html') JavaScript
-                .nav-content
-                    ul.tabs.tabs-transparent
+                .nav-wrapper
+                    ul.left.hide-on-med-and-down
+                        li
+                            a.waves-effect.waves-light.btn(href='/new_arrivals') new arrivals
                         li.tab
-                            a.active(href='#newarrivals') new arrivals
+                            a.waves-effect.waves-light.btn(href='#women') women
                         li.tab
-                            a(href='#women') women
+                            a.waves-effect.waves-light.btn(href='#men') men
                         li.tab
-                            a(href='#men') men
-                        li.tab
-                            a(href='#clearance') clearance
-                #newarrivals.col.s12 new arrivals
-                #women.col.s12 women
-                #men.col.s12 men
-                #clearance.col.s12 clearance
+                            a.waves-effect.waves-light.btn(href='#clearance') clearance
         main
             block content
             // Import jQuery before materialize.js
             script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
             script(type='text/javascript', src='js/bin/materialize.min.js')
+
+
+
         footer.page-footer
             .container
                 .row

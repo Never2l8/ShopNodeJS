@@ -1,0 +1,33 @@
+extends layout
+
+block content
+
+    .container
+         form(action='/sign_up/process', method='get').col.s12
+             fieldset
+                    legend Sign Up:
+                    .input-field.col.s12
+                        input#email(type='text' name='email' required=true)
+                        label(for='email') Email
+                    .input-field.col.s12
+                        input#password(type='text' name='password' required=true)
+                        label(for='password') Password
+                    .input-field.col.s12
+                        input#repeat_password(type='text' name='repeat_password' required=true)
+                        label(for='repeat_password') Repeat Password
+                    p
+                        input#remember_me(type='checkbox', checked='checked')
+                        label(for='remember_me') Remember Me
+                            p
+                                | By creating an account you agree to our
+                                a(href='#') Terms & Privacy
+                                | .
+                            .clearfix
+                                button.cancelbtn(type='button') Cancel
+                                button.signupbtn(type='submit') Sign Up
+
+
+
+
+
+

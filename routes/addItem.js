@@ -1,6 +1,7 @@
 // must be
 const express = require('express');
 const router = express.Router();
+const printHello = require('../main/hello_world');
 
 // if you need to use DB
 const Sequelize = require('sequelize');
@@ -16,6 +17,7 @@ sequelize
 
 // route mapping itself
 router.get('/', function(req, res, next) {
+    printHello();
     res.render('addItem', { title: 'Express' });
 });
 

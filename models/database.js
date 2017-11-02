@@ -1,11 +1,10 @@
+const dbConfig = require('dbConfig');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres:1986@localhost:5432/postgres');
+const database = new Sequelize(dbConfig.connectionString);
 
-const dbConfig = {
-  forceCreateTable: true
-};
 
-sequelize
+
+database
     .authenticate()
     .then(() => {
     console.log('Connection has been established successfully.');
@@ -13,7 +12,7 @@ sequelize
 .catch(err => {
     console.error('Unable to connect to the database:', err);
 });
-const User = sequelize.define('user', {
+const User = database.define('user', {
     firstName: {
         type: Sequelize.STRING
     },
@@ -21,11 +20,6 @@ const User = sequelize.define('user', {
         type: Sequelize.STRING
     }
 });
-
-const db = {
-    sequelize: sequelize,
-    dbConfig: dbConfig
-};
 
 // force: true will drop the table if it already exists
 User.sync({force: dbConfig.forceCreateTable}).then(() => {
@@ -38,4 +32,4 @@ User.sync({force: dbConfig.forceCreateTable}).then(() => {
 
 var item = require('./Item');
 
-module.exports = sequelize;
+module.exports = database;
