@@ -6920,7 +6920,7 @@ body {
 main {
   flex: 1 0 auto; }
 
-/* Это форма sign up
+/* Это форма Sign up
 style.
   /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -6933,7 +6933,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-color: #26a69a;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -6944,7 +6944,7 @@ button {
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
-  background-color: #f44336; }
+  background-color: #ee6e73; }
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
