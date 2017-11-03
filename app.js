@@ -13,6 +13,7 @@ var account = require('./routes/account');
 var cart = require('./routes/cart');
 var sign_up = require('./routes/sign_up');
 var new_arrivals = require('./routes/new_arrivals');
+var valentino_floral_print_gown= require('./routes/valentino_floral_print_gown');
 
 
 var app = express();
@@ -42,6 +43,7 @@ app.use('/account', account);
 app.use('/cart', cart);
 app.use('/sign_up', sign_up);
 app.use('/new_arrivals', new_arrivals);
+app.use('/valentino_floral_print_gown', valentino_floral_print_gown);
 
 
 // catch 404 and forward to error handler
