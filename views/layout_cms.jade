@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/css/materialize.css')
+        // Import Google Icon Font
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        // Import materialize.css
+        //link(type='text/css', rel='stylesheet', href='css/materialize.min.css', media='screen,projection')
+        // Let browser know website is optimized for mobile
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+
+    body
+        header
+            nav
+                .nav-wrapper
+                    a.brand-logo.right(href='/') Logo
+                    ul#nav-mobile.left.hide-on-med-and-down
+                        li
+                            a.waves-effect.waves-light.btn(href='/orders') Orders
+                        li
+                            a.waves-effect.waves-light.btn(href='/statistics') Statistics
+                        li
+                            a.waves-effect.waves-light.btn(href='/addItem') Add Item
+                        li
+                            a.waves-effect.waves-light.btn(href='add_category') Add Category
+
+        main
+            block content
+            // Import jQuery before materialize.js
+            script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+            script(type='text/javascript', src='js/bin/materialize.min.js')

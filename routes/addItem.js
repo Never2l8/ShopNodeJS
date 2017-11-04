@@ -4,16 +4,16 @@ const router = express.Router();
 const printHello = require('../main/hello_world');
 
 // if you need to use DB
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres:1986@localhost:5432/postgres');
-sequelize
-    .authenticate()
-    .then(() => {
-        console.log('Connection has been established successfully.');
-    })
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
+// const Sequelize = require('sequelize');
+// const sequelize = new Sequelize('postgres://postgres:1986@localhost:5432/postgres');
+// sequelize
+//     .authenticate()
+//     .then(() => {
+//         console.log('Connection has been established successfully.');
+//     })
+//     .catch(err => {
+//         console.error('Unable to connect to the database:', err);
+//     });
 
 // route mapping itself
 router.get('/', function(req, res, next) {

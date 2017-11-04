@@ -13,7 +13,15 @@ var account = require('./routes/account');
 var cart = require('./routes/cart');
 var sign_up = require('./routes/sign_up');
 var new_arrivals = require('./routes/new_arrivals');
-var valentino_floral_print_gown= require('./routes/valentino_floral_print_gown');
+var valentino_floral_print_gown = require('./routes/valentino_floral_print_gown');
+const cms = require('./routes/cms');
+const add_category = require('./routes/add_category');
+const statistics = require('./routes/statistics');
+const orders = require('./routes/orders');
+const log_in = require('./routes/log_in');
+const women = require('./routes/women');
+const men = require('./routes/men');
+const clearance = require('./routes/clearance');
 
 
 var app = express();
@@ -37,6 +45,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/cms', cms);
 app.use('/users', users);
 app.use('/addItem', addItem);
 app.use('/account', account);
@@ -44,7 +53,13 @@ app.use('/cart', cart);
 app.use('/sign_up', sign_up);
 app.use('/new_arrivals', new_arrivals);
 app.use('/valentino_floral_print_gown', valentino_floral_print_gown);
-
+app.use('/add_category', add_category);
+app.use('/statistics', statistics);
+app.use('/orders', orders);
+app.use('/log_in', log_in);
+app.use('/women', women);
+app.use('/men', men);
+app.use('/clearance', clearance);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
