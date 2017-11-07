@@ -1,1 +1,48 @@
 extends layout
+
+block content
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $('select').material_select();
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Ok',
+                closeOnSelect: false // Close upon selecting a date,
+            });
+        });
+
+    h4 My account
+    nav.nav-wrapper
+        ul#nav-mobile.left.hide-on-med-and-down
+            li
+                a.waves-effect.waves-light.btn(href='/account') my information
+            li
+                a.waves-effect.waves-light.btn(href='/shipping') shipping
+            li
+                a.waves-effect.waves-light.btn(href='/billing') billing
+
+    .row
+        form.col.s12
+            .row
+                .input-field.col.s6
+                    input#first_name.validate(placeholder='Placeholder', type='text')
+                    label(for='first_name') First Name
+                .input-field.col.s6
+                    input#last_name.validate(type='text')
+                    label(for='last_name') Last Name
+            .row
+                .input-field.col.s12
+                    input#email.validate(type='email')
+                    label(for='email') Email
+            .row
+                .input-field.col.s12
+                    input#password.validate(type='password')
+                    label(for='password') Password
+            .row
+                .input-field.col.s12
+                    input#birthday.datepicker(type='text')
+                    label(for='birthday') Birthdate
+

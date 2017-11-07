@@ -2,5 +2,26 @@ extends layout_cms
 
 block content
     link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $('select').material_select();
+        });
     h1= title
-    
+    form(action='/add_category', method='post').col.s6
+        .row
+            .input-field.col.s4
+                input#add_your_category.validate(type='text', name='category_name')
+                label(for='add_your_category') add your category
+        .row
+            .input-field.col.s4
+            label Choose parent category
+            select.browser-default(name='parent_category')
+                option(value='', disabled='', selected='') Choose parent category
+                each category, i in categories
+                    option(value=i) #{category.dataValues['name']}
+        .row
+            .input-field.col.s2
+                button.btn.waves-effect.waves-light(type='submit', name='action')
+                    | Submit
+                    i.material-icons.right send
+
