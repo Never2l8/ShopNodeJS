@@ -1,45 +1,53 @@
 extends layout_cms
 
 block content
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $('select').material_select();
+        });
     .container
-        form(action='/addItem/process', method='get' ).col.s12
-            fieldset
+        form(action='/addItem', method='post' ).col.s2
 
-                   legend Item Card:
-                   .input-field.col.s12
-                      input#category(type='text' name='category')
-                      label(for='category') Category
-                   .input-field.col.s12
-                      input#item_brand(type='text' name='item_brand')
-                      label(for='item_brand') Brand
-                   .input-field.col.s12
-                      input#item_title(type='text' name='item_title' required=true)
-                      label(for='item_title') Title
-                   .file-field.input-field
-                       .btn
-                           span Image
-                           input(type='file')
-                       .file-path-wrapper
-                           input.file-path.validate(type='text')
-                   .input-field.col.s12
-                      textarea#brief.materialize-textarea(name='brief')
-                      label(for='brief') Brief
-                   .input-field.col.s12
-                      textarea#description.materialize-textarea(name='description')
-                      label(for='description') Description
-                   .input-field.col.s12
-                      input#price(type='text'  name='price')
-                      label(for='price') Price
-                   .input-field.col.s12
-                      input#item_color(type='text' name='item_color')
-                      label(for='item_color') Color
-                   .input-field.col.s12
-                      input#size(type='text'  name='size')
-                      label(for='size') Size
-                   .input-field.col.s12
-                       input#vendor_code(type='text' name='vendor_code')
-                       label(for='vendor_code') Vendor Code
-                       button.waves-effect.waves-light.btn(type='submit' ) Submit
+            fieldset
+                legend Item Card:
+                .input-field.col.s2
+                    select(name='category_name')
+                        option(value='', disabled='', selected='') Select a category
+                        each category, i in categories
+                            option(value=i) #{category.dataValues['name']}
+                .input-field.col.s2
+                    input#item_brand(type='text' name='item_brand')
+                    label(for='item_brand') Brand
+                .input-field.col.s2
+                    input#item_title(type='text' name='item_title' required=true)
+                    label(for='item_title') Title
+                .file-field.input-field
+                    .btn
+                        span Image
+                        input(type='file')
+                    .file-path-wrapper
+                        input.file-path.validate(type='text')
+                .input-field.col.s2
+                    textarea#brief.materialize-textarea(name='brief')
+                    label(for='brief') Brief
+                .input-field.col.s2
+                    textarea#description.materialize-textarea(name='description')
+                    label(for='description') Description
+                .input-field.col.s2
+                    input#price(type='text'  name='price')
+                    label(for='price') Price
+                .input-field.col.s2
+                    input#item_color(type='text' name='item_color')
+                    label(for='item_color') Color
+                .input-field.col.s2
+                    select(name='size')
+                        option(value='', disabled='', selected='') Select a size
+                        each size, i in sizes
+                            option(value=i) #{size.dataValues['name']}
+                .input-field.col.s2
+                    input#vendor_code(type='text' name='vendor_code')
+                    label(for='vendor_code') Vendor Code
+                    button.waves-effect.waves-light.btn(type='submit' ) Submit
 
 
 

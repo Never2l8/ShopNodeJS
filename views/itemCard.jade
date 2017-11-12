@@ -5,48 +5,24 @@ block content
         .col.s4
             .card
                 .card-image
-                    img(src='images/dress01.jpg')
+                    img(src='images/no.jpg')
         .col.s4
-            .card
-                .card-image
-                    img(src='images/dress02.jpg')
-        .col.s4
-                    p
-                        | VALENTINO
-                    P    floral print gown
-                    p    $11,000
+                    p= item.item_brand
+                    P= item.item_title
+                    p= "$"+item.price
 
                         br
                         br
-                    p    Make a statement with this black silk floral print gown
-                        |from Valentino. This soft and ethereal gown features a
-                        |funnel neck, a concealed zip fastening, a back tie
-                        |fastening, short sleeves, a ruched design, a full lining and
-                        |lace detailing on the chest. The floral print and lace collar
-                        |add to the Victoriana theme of the maison's AW17
-                        |collection.
+                    p= item.brief
                         br
                         br
 
-                    p   Designer Style ID: NB3VD6C53ES
+                    p="Designer Style ID:"+ item.vendor_code
                         br
-                    p   Colour: 0NO NERO
+                    p="Colour:"+ item.item_color
                         br
-                    p   Made in Italy
-                        br
-                        br
-                    p   Outer Composition:silk 100%
-                        br
-                        |Lining Composition:silk 100%
-                        br
-                        |Outer Composition:polyester 100%
-                        br
-                        |Outer Composition:polyamide 100%
-                        br
-                        |Outer Composition:viscose 100%
-                        br
-                        |Washing Instructions:dry clean only
-
-                .card-action
-                    a.waves-effect.waves-light.btn(href='#') add to bag
-                        i.medium.material-icons shopping_basket
+                    p="Size:"+ item.size
+                    p= item.description
+                    .card-action
+                        a.waves-effect.waves-light.btn(href='#') add to bag
+                            i.medium.material-icons shopping_basket

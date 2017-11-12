@@ -22,6 +22,7 @@ const log_in = require('./routes/log_in');
 const women = require('./routes/women');
 const men = require('./routes/men');
 const clearance = require('./routes/clearance');
+const fileUpload = require('express-fileupload');
 
 
 var app = express();
@@ -78,6 +79,7 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+app.use(fileUpload());
 
 
 module.exports = app;

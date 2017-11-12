@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    block content
+        .row
+            each item in items
+                .col.s2
+                    .card
+                        .card-image
+                            img(src=item.item_image)
+                        .card-content
+                            p=item.item_brand
+                            p="$" + item.price
+                        .card-action
+                            a(href='itemCard')=item.item_title

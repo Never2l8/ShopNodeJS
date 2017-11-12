@@ -4,17 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-
     "build-css": "node-sass --include-path scss public/sass/materialize.scss public/css/materialize.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
-
-
   },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
+    "express-fileupload": "^0.3.0",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "node-sass-middleware": "0.9.8",

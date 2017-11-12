@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const models = require('../new_models');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('postgres://postgres:1986@localhost:5432/postgres');
 sequelize
@@ -12,7 +13,15 @@ sequelize
     });
 
 router.get('/', function(req, res, next) {
-    res.render('new_arrivals', { title: 'Express' });
+    models.item.findAll({})
+        .then(items => {
+        console.log(items);
+        res.render('new_arrivals', {
+            title: 'New Arrivals',
+            item: items
+        });
+    });
+
 });
 
 module.exports = router;

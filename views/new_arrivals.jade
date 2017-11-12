@@ -5,34 +5,10 @@ block content
         .col.s2
             .card
                 .card-image
-                    img(src='images/dress02.jpg')
+                    img(src='images/no.jpg')
 
                 .card-content
-                    p
-                        | VALENTINO
-                    p $11,000
+                    p=item.item_brand
+                    p="$"+ item.price
                 .card-action
-                    a(href='itemCard') itemCard
-        .col.s2
-            .card
-                .card-image
-                    img(src='images/sweatshirt01.jpg')
-                .card-content
-                    p
-                        | VALENTINO
-                    p $2,490
-                .card-action
-                    a(href='#') embroidered sweatshirt
-        .col.s2
-            .card
-                .card-image
-                    img(src='images/trousers02.jpg')
-                .card-content
-                    p
-                        | VALENTINO
-                    p $2,190
-                .card-action
-                    a(href='#') printed trousers
-
-
-
+                    a(href='itemCard')=item.item_title
