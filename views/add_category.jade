@@ -7,7 +7,7 @@ block content
             $('select').material_select();
         });
     h1= title
-    form(action='/add_category', method='post').col.s6
+    form#uploadForm(ref='uploadForm', action='/add_category', method='post', enctype='multipart/form-data').col.s6
         .row
             .input-field.col.s2
                 input#add_your_category.validate(type='text', name='category_name')
