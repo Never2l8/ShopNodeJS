@@ -13,4 +13,4 @@ block content
                             p=item.item_brand
                             p="$" + item.price
                         .card-action
-                            a(href='itemCard')=item.item_title
+                            a(href='itemCard?id=' + item.id + '&item_title=' + item.item_title)=item.item_title

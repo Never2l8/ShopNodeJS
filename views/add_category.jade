@@ -17,7 +17,7 @@ block content
                 select(name='parent_category')
                     option(value='', disabled='', selected='') Choose parent category
                     each category, i in categories
-                        option(value=i) #{category.dataValues['name']}
+                        option(value=category.dataValues['id']) #{category.dataValues['name']}
         .row
             .input-field.col.s2
                 .file-field.input-field

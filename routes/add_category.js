@@ -4,7 +4,7 @@ const models  = require('../new_models');
 
 router.get('/', function(req, res, next) {
     models.category.findAll({
-        attributes: ['name']
+        attributes: ['id', 'name']
     }).then(categories => {
         console.log(categories);
         res.render('add_category', {
@@ -20,10 +20,10 @@ router.post('/', function(req, res, next) {
     models.category.create({
         name: req.body.category_name,
         image: req.body.image,
-        parent: req.body.parent_category,
+        parentId:req.body.parent_category
     }).then(function(data) {
         models.category.findAll({
-            attributes: ['name']
+            attributes: ['id', 'name']
         }).then(categories => {
             console.log(categories);
             res.render('add_category', {
