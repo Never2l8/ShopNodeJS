@@ -71,38 +71,41 @@ router.post('/process', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    models.item.create({
-        category: req.body.category_name,
-        item_brand: req.body.item_brand,
-        item_title: req.body.item_title,
-        item_image: req.body.item_image,
-        brief: req.body.brief,
-        description: req.body.description,
-        price: req.body.price,
-        item_color: req.body.item_color,
-        size: req.body.size,
-        vendor_code: req.body.vendor_code
-    }).then(function (data) {
+    const path = 'images/items/' + req.body.item_title + '.jpg';
+    req.files.item_image.mv('public/' + path, function (err) {
+        if (err)
+            return res.status(500).send(err);
+        models.item.create({
+            category: req.body.category_name,
+            item_brand: req.body.item_brand,
+            item_title: req.body.item_title,
+            item_image: path,
+            brief: req.body.brief,
+            description: req.body.description,
+            price: req.body.price,
+            item_color: req.body.item_color,
+            size: req.body.size,
+            vendor_code: req.body.vendor_code
+        }).then(function (data) {
 
-        models.category.findAll({
-            attributes: ['name']
-        }).then(categories => {
-            models.size.findAll({
+            models.category.findAll({
                 attributes: ['name']
-            }).then(sizes => {
-                res.render('addItem', {
-                    title: 'Add Item',
-                    sizes: sizes,
-                    categories: categories
+            }).then(categories => {
+                models.size.findAll({
+                    attributes: ['name']
+                }).then(sizes => {
+                    res.render('addItem', {
+                        title: 'Add Item',
+                        sizes: sizes,
+                        categories: categories
+                    });
+                }).catch(function (error) {
+                    res.status(500);
+                    res.json({error: error, stackError: error.stack});
                 });
-            }).catch(function (error) {
-                res.status(500);
-                res.json({error: error, stackError: error.stack});
             });
         });
     });
-
-
 });
 // tell system about new routes
-module.exports = router;
+    module.exports = router;

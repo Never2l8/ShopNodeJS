@@ -6,7 +6,7 @@ block content
             $('select').material_select();
         });
     .container
-        form(action='/addItem', method='post' ).col.s2
+        form#uploadForm(ref='uploadForm', action='/addItem', method='post', enctype='multipart/form-data' ).col.s2
 
             fieldset
                 legend Item Card:
@@ -24,7 +24,7 @@ block content
                 .file-field.input-field
                     .btn
                         span Image
-                        input(type='file')
+                        input(type='file' name='item_image')
                     .file-path-wrapper
                         input.file-path.validate(type='text')
                 .input-field.col.s2
