@@ -1,4 +1,5 @@
 "use strict";
+const models = require('../new_models');
 
 module.exports = function (sequelize, DataTypes) {
 
@@ -9,7 +10,6 @@ module.exports = function (sequelize, DataTypes) {
 
 
     return sequelize.define("item", {
-        category: DataTypes.STRING,
         item_brand: DataTypes.STRING,
         item_title: DataTypes.STRING,
         item_image: DataTypes.STRING,
@@ -17,7 +17,6 @@ module.exports = function (sequelize, DataTypes) {
         description: DataTypes.STRING,
         price: DataTypes.DECIMAL(8, 2),
         item_color: DataTypes.STRING,
-        size: DataTypes.STRING,
         vendor_code: DataTypes.STRING,
     });
 };

@@ -5,7 +5,7 @@ block content
         .col.s4
             .card
                 .card-image
-                    img(src='images/no.jpg')
+                    img(src=item.item_image)
         .col.s4
                     p= item.item_brand
                     P= item.item_title
@@ -17,11 +17,11 @@ block content
                         br
                         br
 
-                    p="Designer Style ID:"+ item.vendor_code
+                    p="Designer Style ID: "+ item.vendor_code
                         br
-                    p="Colour:"+ item.item_color
+                    p="Colour: "+ item.item_color
                         br
-                    p="Size:"+ item.size
+                    p="Size: "+ item.size
                     p= item.description
                     .card-action
                         a.waves-effect.waves-light.btn(href='#') add to bag

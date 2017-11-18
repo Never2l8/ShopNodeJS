@@ -11,10 +11,10 @@ block content
             fieldset
                 legend Item Card:
                 .input-field.col.s2
-                    select(name='category_name')
+                    select(name='categoryId')
                         option(value='', disabled='', selected='') Select a category
                         each category, i in categories
-                            option(value=i) #{category.dataValues['name']}
+                            option(value=category.dataValues['id']) #{category.dataValues['name']}
                 .input-field.col.s2
                     input#item_brand(type='text' name='item_brand')
                     label(for='item_brand') Brand
@@ -40,10 +40,10 @@ block content
                     input#item_color(type='text' name='item_color')
                     label(for='item_color') Color
                 .input-field.col.s2
-                    select(name='size')
+                    select(name='sizeId')
                         option(value='', disabled='', selected='') Select a size
                         each size, i in sizes
-                            option(value=i) #{size.dataValues['name']}
+                            option(value=size.dataValues['id']) #{size.dataValues['name']}
                 .input-field.col.s2
                     input#vendor_code(type='text' name='vendor_code')
                     label(for='vendor_code') Vendor Code

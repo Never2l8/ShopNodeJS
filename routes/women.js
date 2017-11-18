@@ -14,9 +14,8 @@ sequelize
 
 router.get('/', function (req, res, next) {
     models.item.findAll({
-        where: {
-            category: 'women'
-        }
+        include: [models.category]
+
     })
         .then(items => {
             console.log(items);

@@ -17,7 +17,10 @@ fs
         const model = sequelize.import(path.join(__dirname, file));
         db[model.name] = model;
     });
-
+db.category.hasOne(db.item);
+db.item.belongsTo(db.category);
+db.size.hasOne(db.item);
+db.item.belongsTo(db.size);
 Object.keys(db).forEach(function (modelName) {
     if ("associate" in db[modelName]) {
         db[modelName].associate(db);

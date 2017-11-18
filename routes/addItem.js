@@ -18,10 +18,8 @@ const models = require('../new_models');
 // route mapping itself
 router.get('/', function (req, res, next) {
     models.category.findAll({
-        attributes: ['name']
     }).then(categories => {
         models.size.findAll({
-            attributes: ['name']
         }).then(sizes => {
             res.render('addItem', {
                 title: 'Add Item',
@@ -62,7 +60,7 @@ router.post('/process', function (req, res, next) {
     const color = req.body.item_color;
     console.log(color);
 
-    const size = req.body.size;
+    const size = req.body.sizeId;
     console.log(size);
 
     const code = req.body.vendor_code;
@@ -76,7 +74,7 @@ router.post('/', function (req, res, next) {
         if (err)
             return res.status(500).send(err);
         models.item.create({
-            category: req.body.category_name,
+            categoryId: req.body.categoryId,
             item_brand: req.body.item_brand,
             item_title: req.body.item_title,
             item_image: path,
@@ -84,15 +82,13 @@ router.post('/', function (req, res, next) {
             description: req.body.description,
             price: req.body.price,
             item_color: req.body.item_color,
-            size: req.body.size,
+            sizeId: req.body.sizeId,
             vendor_code: req.body.vendor_code
         }).then(function (data) {
 
             models.category.findAll({
-                attributes: ['name']
             }).then(categories => {
                 models.size.findAll({
-                    attributes: ['name']
                 }).then(sizes => {
                     res.render('addItem', {
                         title: 'Add Item',
