@@ -21,6 +21,8 @@ db.category.hasOne(db.item);
 db.item.belongsTo(db.category);
 db.size.hasOne(db.item);
 db.item.belongsTo(db.size);
+db.role.hasOne(db.user);
+db.user.belongsTo(db.role);
 Object.keys(db).forEach(function (modelName) {
     if ("associate" in db[modelName]) {
         db[modelName].associate(db);

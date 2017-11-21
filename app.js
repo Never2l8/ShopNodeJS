@@ -23,6 +23,7 @@ const women = require('./routes/women');
 const men = require('./routes/men');
 const clearance = require('./routes/clearance');
 const fileUpload = require('express-fileupload');
+const addressBook = require('./routes/addressBook');
 
 
 var app = express();
@@ -63,6 +64,7 @@ app.use('/log_in', log_in);
 app.use('/women', women);
 app.use('/men', men);
 app.use('/clearance', clearance);
+app.use('/addressBook', addressBook);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -81,7 +83,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-
 
 
 module.exports = app;

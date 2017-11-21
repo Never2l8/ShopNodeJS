@@ -1,0 +1,64 @@
+extends layout
+
+block content
+    script(type='text/javascript').
+        $(document).ready(function () {
+            $('select').material_select();
+
+        });
+
+    h4 My account
+    nav.nav-wrapper
+        ul#nav-mobile.left.hide-on-med-and-down
+            li
+                a.waves-effect.waves-light.btn(href='/account') my information
+            li
+                a.waves-effect.waves-light.btn(href='/addressBook') shipping
+            li
+                a.waves-effect.waves-light.btn(href='/billing') billing
+
+    .row
+        form.col.s12
+            .row
+                .input-field.col.s6
+                    input#first_name.validate(type='text')
+                    label(for='first_name') First Name
+                .input-field.col.s6
+                    input#last_name.validate(type='text')
+                    label(for='last_name') Last Name
+            .row
+                .input-field.col.s12
+                    input#street_address.validate(type='text')
+                    label(for='street_address') Street address
+            .row
+                .input-field.col.s12
+                    input#appartment.validate(type='text')
+                    label(for='appartment') Apt.#,P.O.Box
+            .row
+                .input-field.col.s6
+                    input#city.validate(type='text')
+                    label(for='city') City
+                .input-field.col.s6
+                    select
+                        option(value='', disabled='', selected='') Select a State
+                        each state, i in states
+                            option(value=state.dataValues['id']) #{state.dataValues['name']}
+                    label State
+            .row
+                .input-field.col.s12
+                    input#zip_code.validate(type='text')
+                    label(for='zip_code') zip code
+            .row
+                .input-field.col.s12
+                    input#tel.validate(type='tel')
+                    label(for='tel') phone
+            .row
+                .input-field.col.s12
+                    input#primary_address.validate(type='checkbox')
+                    label(for='primary_address') make this my primary address
+
+            .row
+                .input-field.col.s2
+                    button.btn.waves-effect.waves-light(type='submit')
+                        | Save address
+                        i.material-icons.right send

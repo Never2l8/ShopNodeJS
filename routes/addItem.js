@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../new_models');
+const fs = require('fs');
+
 
 // if you need to use DB
 // const Sequelize = require('sequelize');
@@ -17,10 +19,8 @@ const models = require('../new_models');
 
 // route mapping itself
 router.get('/', function (req, res, next) {
-    models.category.findAll({
-    }).then(categories => {
-        models.size.findAll({
-        }).then(sizes => {
+    models.category.findAll({}).then(categories => {
+        models.size.findAll({}).then(sizes => {
             res.render('addItem', {
                 title: 'Add Item',
                 sizes: sizes,
@@ -69,7 +69,14 @@ router.post('/process', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    const path = 'images/items/' + req.body.item_title + '.jpg';
+
+
+
+    const dir = './public/images/items/' + req.body.item_title;
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+    }
+    const path = 'images/items/' + req.body.item_title + '/' + req.body.item_title + '.jpg';
     req.files.item_image.mv('public/' + path, function (err) {
         if (err)
             return res.status(500).send(err);
@@ -86,10 +93,8 @@ router.post('/', function (req, res, next) {
             vendor_code: req.body.vendor_code
         }).then(function (data) {
 
-            models.category.findAll({
-            }).then(categories => {
-                models.size.findAll({
-                }).then(sizes => {
+            models.category.findAll({}).then(categories => {
+                models.size.findAll({}).then(sizes => {
                     res.render('addItem', {
                         title: 'Add Item',
                         sizes: sizes,
@@ -104,4 +109,4 @@ router.post('/', function (req, res, next) {
     });
 });
 // tell system about new routes
-    module.exports = router;
+module.exports = router;
